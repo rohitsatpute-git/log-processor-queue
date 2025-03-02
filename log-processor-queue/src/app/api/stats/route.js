@@ -1,8 +1,11 @@
-import { supabase } from "../../lib/supabase";
 
-export default async function handler(req, res) {
-  const { data, error } = await supabase.from("log_analytics").select("*");
-  if (error) return res.status(500).json({ error: error.message });
+import { NextResponse } from "next/server";
+import supabase from "../../../lib/supabase";
 
-  res.json(data);
+export const GET = async (req) => {
+  const { data, error } = await supabase.from("log_stats").select("*");
+  console.log("data", data)
+  if (error) return NextResponse.json({ error: error.message });
+
+  return NextResponse.json(data);
 }

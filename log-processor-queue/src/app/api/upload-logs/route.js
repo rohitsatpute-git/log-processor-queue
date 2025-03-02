@@ -1,5 +1,4 @@
-import {  createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers"; // Use Next.js cookies
+import supabase from "../../../lib/supabase";
 import multer from "multer";
 import { Queue } from "bullmq";
 import { NextResponse } from "next/server";
@@ -15,8 +14,6 @@ export const POST = async (req) => {
         return resolve(NextResponse.json({ error: err.message }, { status: 500 }));
       }
 
-      const cookieStore = await cookies(); // ✅ Await cookies()
-      const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
 
       const authHeader = req.headers.get("authorization");
       const token = authHeader?.split(" ")[1];
