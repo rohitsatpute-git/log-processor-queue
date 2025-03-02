@@ -1,0 +1,5 @@
+[2025-02-20T10:00:00Z] INFO Server started successfully
+[2025-02-20T10:05:30Z] ERROR Database timeout {"userId": 123, "ip": "192.168.1.1"}
+[2025-02-20T10:10:45Z] WARN High memory usage detected {"usage": "85%"}
+[2025-02-20T10:15:00Z] DEBUG API request received {"endpoint": "/login", "method": "POST"}
+[2025-02-20T10:20:15Z] ERROR Unauthorized access attempt {"userId": 456, "ip": "10.0.0.5"}
